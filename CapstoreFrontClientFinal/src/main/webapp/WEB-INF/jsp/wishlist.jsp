@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-		<form action="removeItems" method="get">
+		<form action="/removeItems" method="get">
 			<table border=1px solid black>
 				<tr>
 					<th colspan="4">Wishlist</th>
@@ -21,10 +21,7 @@
 					<td>
 						Products: <br/>${wishlist.productId }
 					</td>
-					<td>
-						<input type="submit" value="Remove">
-					</td>
-										
+								
 				</tr>
 				</c:forEach>
 			</table>

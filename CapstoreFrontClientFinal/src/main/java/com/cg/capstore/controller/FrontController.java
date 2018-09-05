@@ -28,12 +28,12 @@ public class FrontController {
 		data.put("productId", productId);
 		
 		System.err.println("Sending Data..."+data.get("productId") + "...Customer..."+data.get("customerId"));
-		ProductBean productBean = restTemplate.postForObject("http://localhost:6565/add",data, ProductBean.class);
+		ProductBean productBean = restTemplate.postForObject("http://localhost:9002/add",data, ProductBean.class);
 		
 		System.err.println("Added Data---"+productBean);
 		System.err.println("Sending Data... Customer Email"+customerId);
 		//WishlistBean wishlist = restTemplate.getForObject("http://localhost:6565/display?email="+customerId, WishlistBean.class);
-		Map<String, Object> wishlist = restTemplate.getForObject("http://localhost:6565/display?email="+customerId, Map.class);
+		Map<String, Object> wishlist = restTemplate.getForObject("http://localhost:9002/display?email="+customerId, Map.class);
 		System.err.println("Got Data---"+wishlist);
 		//System.err.println(wishlist.getProduct());
 		
@@ -44,4 +44,5 @@ public class FrontController {
 		return map;
 	}
 	
-}
+	
+	}

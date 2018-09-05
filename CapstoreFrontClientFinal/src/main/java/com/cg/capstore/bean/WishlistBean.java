@@ -36,5 +36,12 @@ public class WishlistBean {
 	public WishlistBean() {
 		
 	}
+
+	@Override
+	public String toString() {
+		return "WishlistBean [wishlistId=" + wishlistId + ", product=" + product + "]";
+	}
+	
+	
 	
 }

@@ -21,17 +21,12 @@ public class InviteFriendRESTController {
 		return "<<< REST CONTROLLER OF JSP IS RUNNING <br/> PORT NO 5500>>>";
 	}
 		
-	@RequestMapping(value="/sendMail", method=RequestMethod.GET)
+	@RequestMapping(value="/sendMail", method=RequestMethod.POST)
 	public ModelMap sendInvitation(String customerMail, String password, String friendEmail, ModelMap map) throws MessagingException {
 		System.err.println("IN JSP REST CONTROLLER");
 		System.err.println(customerMail+"  "+password +"  "+friendEmail);
 		
 		RestTemplate template = new RestTemplate();
-		
-		/*StoreTempData data = new StoreTempData();
-		data.setCustomerMail(customerMail);
-		data.setPassword(password);
-		data.setFriendEmail(friendEmail);*/
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("customerEmail", customerMail);
@@ -39,7 +34,7 @@ public class InviteFriendRESTController {
 		data.put("friendEmail", friendEmail);
 		
 		System.err.println("Sent Data..."+data);
-		Map<String, String> reply = template.postForObject("http://localhost:5501/mailNow", data, Map.class); 
+		Map<String, String> reply = template.postForObject("http://localhost:9002/mailNow", data, Map.class); 
 		String result="Success!!! Invitation Has been sent to your friend "+reply.get("friendEmail");
 		map.put("message", result);
 		return map;
